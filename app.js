@@ -25,14 +25,17 @@ app.get("/",async(req,res) => {
         blogs
     })
 })
+
+app.get("/blogs/:id",async(req,res) => {
+    const blog = await Blog.findById(req.params.id)
+    res.render("post",{
+        blog
+    })
+    //res.render("add_post")
+})
 app.get("/about",(req,res) => {
 
     res.render("about")
-})
-
-app.get("/post",(req,res) => {
-
-    res.render("post")
 })
 app.get("/add_post",(req,res) => {
 
